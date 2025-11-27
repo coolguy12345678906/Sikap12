@@ -8,13 +8,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Sikap FundHub</title>
     
+    <!-- Optimize Connections to CDNs -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://aistudiocdn.com">
+
     <!-- PWA Manifest Simulation -->
     <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiU2lrYXAgRnVuZEh1YiIsInNob3J0X25hbWUiOiJTaWthcCIs" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
@@ -57,6 +61,15 @@
       }
       .dark ::-webkit-scrollbar-thumb:hover {
         background: #6bced1; 
+      }
+      
+      /* Smooth Fade In Animation */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
       }
     </style>
   <script type="importmap">
