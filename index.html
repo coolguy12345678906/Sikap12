@@ -2,14 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#6bced1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Sikap FundHub</title>
+    
+    <!-- PWA Manifest Simulation -->
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiU2lrYXAgRnVuZEh1YiIsInNob3J0X25hbWUiOiJTaWthcCIs" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -19,8 +28,10 @@
               sikap: {
                 dark: '#3c3c3c',
                 teal: '#6bced1',
-                orange: '#f0b070', // Approximated from image
+                orange: '#f0b070',
                 gray: '#b9b9b9',
+                'dark-bg': '#1a1a1a', // Dark mode background
+                'dark-surface': '#2d2d2d', // Dark mode card surface
               }
             }
           }
@@ -30,6 +41,22 @@
     <style>
       body {
         font-family: 'Poppins', sans-serif;
+        overscroll-behavior: none; /* Prevent pull-to-refresh */
+      }
+      /* Optimize touch interactions */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      /* Custom scrollbar for dark mode */
+      .dark ::-webkit-scrollbar-track {
+        background: #2d2d2d; 
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #555; 
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #6bced1; 
       }
     </style>
   <script type="importmap">
